@@ -30,13 +30,3 @@ def data_loader(datapath, num_of_file):
 	# y = np.asarray(y, dtype=np.int32)		
 		
 	return X, y
-		
-# A01T = h5py.File('./project_datasets/A01T_slice.mat', 'r')
-# X = np.copy(A01T['image'])
-# y = np.copy(A01T['type'])
-# y = y[0,0:X.shape[0]:1]
-# y = np.asarray(y, dtype=np.int32)
-
-X, y = data_loader('./project_datasets', 1)
-print(X.shape)
-print(y.shape)
