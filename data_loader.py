@@ -2,7 +2,16 @@ import numpy as np
 import h5py
 
 def data_loader(datapath, num_of_file):
-	#loading 1 file for now
+	'''
+	This is a function that will take inputs from user and load the assigned number
+	of dataset to the program in Tensors;
+	inputs:
+		1. Directory of the dataset in the format of 'dir/dir/.../dir';
+		2. Number of data set we want to use with a minimum of 1, maximum of 9;
+	output:
+		X: with dimension of (288*num_of_file, 25, 313);
+		y: with dimension of (288*num_of_file,);
+	'''
 	X, y = None, None
 	for i in range(1, num_of_file + 1):
 		curpath = datapath + '/A0' + str(i) + 'T_slice.mat'
