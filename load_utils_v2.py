@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 # functions -- input/output
 ######################################################################
 
-def laod_one(fname):
+def load_one(fname):
     """
     Reads and returns a vector from a file.
     
@@ -41,7 +41,7 @@ def load_all(path):
     list_y = []
     for i in range(9):
         fname = path + 'A0' + str(i+1) +'T_slice.mat'
-        X,y = laod_one(fname)
+        X,y = load_one(fname)
         X,y = remove_nan(X,y)
         list_X.append(X)
         list_y.append(y)
