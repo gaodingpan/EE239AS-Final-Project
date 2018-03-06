@@ -2,12 +2,12 @@ import os
 import numpy as np
 import h5py
 from sklearn.model_selection import train_test_split
-
+import matplotlib.pyplot as plt
 ######################################################################
 # functions -- input/output
 ######################################################################
 
-def laod_one(fname):
+def load_one(fname):
     """
     Reads and returns a vector from a file.
     
@@ -41,7 +41,7 @@ def load_all(path):
     list_y = []
     for i in range(9):
         fname = path + 'A0' + str(i+1) +'T_slice.mat'
-        X,y = laod_one(fname)
+        X,y = load_one(fname)
         X,y = remove_nan(X,y)
         list_X.append(X)
         list_y.append(y)
@@ -58,7 +58,6 @@ def rd_train_val_self_test(path, fnum):
             y_rest = np.concatenate((y_rest, list_y[i]), axis=0)
     X_train, X_val, y_train, y_val = train_test_split(X_rest, y_rest, test_size=100, random_state=42)
     return X_train, X_val, X_test, y_train, y_val, y_test 
-
 
 # X_train, X_val, X_test, y_train, y_val, y_test  = rd_train_val_self_test('../project_datasets/', 1)
 # print(X_train.shape)
